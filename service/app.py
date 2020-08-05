@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, make_response
 from flask_restplus import Api, Resource, fields
 #from sklearn.externals import joblib
+import os
 import joblib
 import numpy as np
 
@@ -8,15 +9,15 @@ flask_app = Flask(__name__)
 
 app = Api(app = flask_app, 
 		  version = "1.0", 
-		  title = "Bitcoin Selling Tool", 
-		  description = "Predicts if today is a good day to sell your bitcoins")
+		  title = "Bitcoin Market Value Tool", 
+		  description = "Predicts the market value of bitcoins!")
 
 name_space = app.namespace('prediction', description='Prediction APIs')
 
 model = app.model('Prediction params', 
 				  {'open': fields.Float(required = True, 
 				  							   description="Open", 
-    					  				 	   help="Open Thickness cannot be blank"),
+    					  				 	   help="Open cannot be blank"),
 				  'high': fields.Float(required = True, 
 				  							   description="High", 
     					  				 	   help="High cannot be blank"),
@@ -48,11 +49,11 @@ class MainClass(Resource):
 			formData = request.json
 			data = [val for val in formData.values()]
 			print(data)
-			prediction = classifier.predict(np.array(data).reshape(1, -1))
+			prediction = classifier.predict(np.array(data))
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
-				"result": "The Bitcoin Market Value must be: " + prediction[0]
+				"result": "The Bitcoin Market Value must be: " + prediction
 				})
 			response.headers.add('Access-Control-Allow-Origin', '*')
 			return response
@@ -62,3 +63,7 @@ class MainClass(Resource):
 				"status": "Could not make prediction",
 				"error": str(error)
 			})
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
