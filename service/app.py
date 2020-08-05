@@ -49,11 +49,10 @@ class MainClass(Resource):
 			data = [val for val in formData.values()]
 			print(data)
 			prediction = classifier.predict(np.array(data).reshape(1, -1))
-			types = { 0: "not recommending", 1: "possible (but dangerous)", 2: "good"}
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
-				"result": "The day is a " + types[prediction[0]] + " day for a robot mission"
+				"result": "The Bitcoin Market Value must be: " + prediction[0]
 				})
 			response.headers.add('Access-Control-Allow-Origin', '*')
 			return response

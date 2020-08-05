@@ -1,5 +1,9 @@
 # Bitcoin Market Value Prediction
 
+## O que faz:
+
+Através do fornecimento dos valores de abertura do mercado no dia, alta e baixa da moeda bem como seu valor de fechamento e volume - podemos predizer o valor de mercado do Bitcoin!
+
 ## O que precisa:
 
 * Scrapy
@@ -26,9 +30,7 @@ $ python3 scraper.py
 
 ## Treinamento
 
-Using the notebook *training.ipynb*, we train a machine learning algorithm and generate a joblib persistence file for sklearn in the *service* folder
-
-Fazendo uso do notebook *training.ipynb*, treinamos o algoritmo de machine learning e criamos um arquivo joblib persistence para sklearn, na pasta service
+Fazendo uso do notebook *training.ipynb*, treinamos o algoritmo de machine learning (KNN) e criamos um arquivo joblib persistence para sklearn, na pasta service
 
 ## Fazendo uso
 

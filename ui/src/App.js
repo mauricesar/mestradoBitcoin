@@ -36,15 +36,6 @@ class App extends Component {
     });
   }
 
-  handleCurrentClick = (event) => {
-    var formData = this.state.formData;
-    formData['open'] = 1
-    formData['high'] = 1
-    formData['low'] = 1
-    formData['close'] = 1
-    formData['volume'] = 1
-  }
-
   handlePredictClick = (event) => {
     const formData = this.state.formData;
     this.setState({ isLoading: true });
