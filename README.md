@@ -1,13 +1,13 @@
 # Robot Mission Deploy
 
-## Requirements
+## O que precisa
 
 * Scrapy
 * Scikit-learn
 * Jupyter notebook
 * Docker (docker-compose)
 
-Below is the list of commands used in a Ubuntu 20.04 LTS distro
+Lista de comandos (usado no Ubuntu 20.04 LTS)
 
 ```
 $ pip3 install scrapy scikit-learn jupyter
@@ -15,34 +15,30 @@ $ pip3 install scrapy scikit-learn jupyter
 ```
 
 
-## Running scraper with scrapy
+## Executando o scraper com BeautifulSoup
 
 
-To run the spider, use the following code in the *crawler* folder:
-
-```
-$ scraper runspider scraper.py
-```
-
-Confirming that it works, we are going to export the data to a CSV file:
+Para executar o scraper.py - use o comando abaixo dentro do arquivo crawler:
 
 ```
-$ scraper runspider scraper.py -o data.csv
+$ python3 scraper.py
 ```
 
-## Training
+## Treinamento
 
 Using the notebook *training.ipynb*, we train a machine learning algorithm and generate a joblib persistence file for sklearn in the *service* folder
 
-## Deploying Application
+Fazendo uso do notebook *training.ipynb*, treinamos o algoritmo de machine learning e criamos um arquivo joblib persistence para sklearn, na pasta service
 
-To run the application, we are using Docker, the first time running requires docker to build the service. In the project's root directory, run:
+## Fazendo uso
+
+Para executar, faz-se uso do Docker. Faz-se necessario executar o build e, logo em seguida, o up.
+
+Ir para http://localhost:5000
 
 ```
 $ docker-compose build
 ```
-
-To bring the application up, running it in a browser through http://localhost:5000, do:
 
 ```
 $ docker-compose up
