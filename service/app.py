@@ -30,7 +30,7 @@ model = app.model('Prediction params',
 				  							   description="Volume", 
     					  				 	   help="Volume cannot be blank"),						  
 
-classifier = joblib.load('svm_clf.joblib')
+classifier = joblib.load('knn_clf.joblib')
 
 @name_space.route("/")
 class MainClass(Resource):

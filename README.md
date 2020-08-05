@@ -1,6 +1,6 @@
-# Robot Mission Deploy
+# Bitcoin Market Value Prediction
 
-## O que precisa
+## O que precisa:
 
 * Scrapy
 * Scikit-learn
