@@ -138,26 +138,12 @@ class App extends Component {
                   variant="success"
                   disabled={isLoading}
                   onClick={!isLoading ? this.handlePredictClick : null}>
-                  { isLoading ? 'Making prediction' : 'Predict' }
+                  { isLoading ? 'Making prediction' : 'Predict now!' }
                 </Button>
               </Col>
-              <Col>
-                <Button
-                  block
-                  variant="danger"
-                  disabled={isLoading}
-                  onClick={this.handleCancelClick}>
-                  Reset prediction
-                </Button>                
+              <Col>           
               </Col>
-              <Col>
-                <Button
-                  block
-                  variant="primary"
-                  disabled={isLoading}
-                  onClick={this.handleCurrentClick}>
-                  Get current
-                </Button>                
+              <Col>            
               </Col>
             </Row>
           </Form>
